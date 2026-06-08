@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: inherited;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base{
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cta-btn{
+    @apply relative bg-inherit text-white py-1 px-0;
+  }
+.cta-anim {
+  @apply absolute w-[0px] group-hover:w-full transition-all ease-out duration-500 h-[2px] bg-yellow-400 bottom-0 left-0;
+}
+}
