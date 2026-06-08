@@ -146,7 +146,7 @@ const PricingCard = ({ plan }) => {
     bg-white rounded-xl p-4 flex flex-col w-full max-w-md transition-all duration-300
     ${
       isPopular
-        ? "border-2 border-cyan-500 shadow-xl lg:scale-105"
+        ? "border-2 border-orange-500 shadow-xl lg:scale-105"
         : "border border-gray-200 shadow-lg"
     }
     relative overflow-hidden
@@ -155,12 +155,12 @@ const PricingCard = ({ plan }) => {
   return (
     <div className={cardClasses}>
       {isPopular && (
-        <div className="absolute -right-18 top-4 w-56 text-center bg-cyan-500 text-white text-xs font-semibold py-1 transform rotate-45 z-10">
+        <div className="absolute -right-18 top-4 w-56 text-center bg-orange-500 text-white text-xs font-semibold py-1 transform rotate-45 z-10">
           Popular
         </div>
       )}
       {hasUpgradeBanner && (
-        <div className="absolute -right-18 top-4 w-56 text-center bg-cyan-500 text-white text-xs font-semibold py-1 transform rotate-45 z-10">
+        <div className="absolute -right-18 top-4 w-56 text-center bg-orange-500 text-white text-xs font-semibold py-1 transform rotate-45 z-10">
           Best Value
         </div>
       )}
@@ -175,8 +175,8 @@ const PricingCard = ({ plan }) => {
       </div>
 
       <div className="text-center">
-        <span className="text-4xl font-bold text-cyan-500">
-          <span className="text-xl align-top mr-1">R</span>
+        <span className="text-4xl font-bold text-orange-500">
+          <span className="text-xl align-top mr-1">$US</span>
           {price}
         </span>
         <p className="text-base font-small text-gray-500 border-b-1 py-3">
@@ -188,7 +188,7 @@ const PricingCard = ({ plan }) => {
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
             {feature.included ? (
-              <CheckIcon className="h-4 w-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+              <CheckIcon className="h-4 w-4 text-orange-500 flex-shrink-0 mt-0.5" />
             ) : (
               <CrossIcon className="h-4 w-4 text-gray-400 flex-shrink-0 mt-0.5" />
             )}

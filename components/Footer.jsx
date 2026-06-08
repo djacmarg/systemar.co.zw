@@ -5,133 +5,193 @@ import ScrollUp from "./ScrollUp";
 import WhatsAppChat from "./WhatsAppChat";
 
 const Footer = () => {
-  return (
-    <div
-      id="contact"
-      className="bg-gradient-to-b from-[#0097A7] to-[#0097A7] text-white min-h-[50vh] h-auto px-10 py-20 md:px-[8%]"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {/* Logo Section */}
-        <div className="flex flex-col items-start">
-          <Image src={logo_botton} alt="logo" className="w-100 pb-6" />
-        </div>
+return ( <footer
+   id="contact"
+   className="
+     relative
+     overflow-hidden
+     bg-gradient-to-br
+     from-[#00ACC1]
+     via-[#0097A7]
+     to-[#006064]
+     text-white
+     min-h-[50vh]
+     px-6
+     py-20
+     md:px-[8%]
+   "
+ >
+{/* Decorative Background Effects */} <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-300/10 rounded-full blur-3xl" /> <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
-        {/* Contact Section */}
-        <div className="flex flex-col">
-          <h4 className="pb-4 text-xl font-semibold uppercase">Contact</h4>
-          <p className="text-sm ">
-            <span className="font-medium">Phone:</span> +27 6059 15114
+  {/* Dot Pattern */}
+  <div
+    className="absolute inset-0 opacity-5"
+    style={{
+      backgroundImage:
+        "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+      backgroundSize: "30px 30px",
+    }}
+  />
+
+  <div className="relative z-10 max-w-7xl mx-auto">
+    {/* Main Footer Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Logo Section */}
+      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+        <Image
+          src={logo_botton}
+          alt="SYSTEMAR Logo"
+          className="w-full max-w-[220px]"
+        />
+
+        <p className="mt-4 text-sm text-white/80 leading-relaxed">
+          Empowering schools with modern digital solutions for administration,
+          communication, finance, and academic management.
+        </p>
+      </div>
+
+      {/* Contact Section */}
+      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
+          Contact
+        </h4>
+
+        <div className="space-y-3 text-sm text-white/85">
+          <p>
+            <span className="font-semibold">Phone:</span> +263 77 486 7068
           </p>
-          <p className="mt-2 text-sm ">
-            <span className="font-medium">Email:</span> info@SYSTEMAR.org
+
+          <p>
+            <span className="font-semibold">Email:</span>{" "}
+            sales@systemar.co.zw
           </p>
-          <p className="mt-2 text-sm ">
-            <span className="font-medium">Web:</span> www.SYSTEMAR.org
+
+          <p>
+            <span className="font-semibold">Web:</span> www.systemar.co.zw
           </p>
 
-          <p className="mt-2 text-sm ">
-            279 President Street,
-            <br /> Germiston, 1401, Gauteng
-            <br /> South Africa
+          <p>
+            Office 1, Highfield Post Office,
+            <br />
+            Highfield, Harare
+            <br />
+            Zimbabwe
           </p>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="flex flex-col">
-          <h4 className="pb-4 text-xl font-semibold uppercase">Quick Links</h4>
-          <ul className="space-y-2">
-            <li>
-              <Link
-                href="/"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#services"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#pricing"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#contact"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Legal Section */}
-        <div className="flex flex-col">
-          <h4 className="pb-4 text-xl font-semibold uppercase">Legal</h4>
-          <ul className="space-y-2">
-            <li>
-              <Link
-                href="/terms-of-use"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Terms of Use
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/privacy-policy"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/refund-policy"
-                className="text-sm  hover:text-white hover:underline transition duration-300"
-              >
-                Refund Policy
-              </Link>
-            </li>
-          </ul>
         </div>
       </div>
 
-      {/* Footer Copyright */}
-      <div className="mt-12 pt-6 text-center text-sm  z-50">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-[14px] text-center md:text-left mb-4 md:mb-0">
-            &copy; 2020 - {new Date().getFullYear()} 2025 SYSTEMAR, a
-            proprietary service of Tech Pundit (Pty) Ltd. All rights reserved.
-          </div>
+      {/* Quick Links */}
+      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
+          Quick Links
+        </h4>
+
+        <ul className="space-y-3">
+          <li>
+            <Link
+              href="/"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Home
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/about"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              About
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/#services"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Services
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/#pricing"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Pricing
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/#contact"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Legal */}
+      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
+          Legal
+        </h4>
+
+        <ul className="space-y-3">
+          <li>
+            <Link
+              href="/terms-of-use"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Terms of Use
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Privacy Policy
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/refund-policy"
+              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+            >
+              Refund Policy
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Bottom Section */}
+    <div className="mt-16 border-t border-white/10 pt-8">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="text-sm text-white/75 text-center lg:text-left">
+          &copy; 2020 - {new Date().getFullYear()} SYSTEMAR, a proprietary
+          service of Tech Pundit (Pty) Ltd. All rights reserved.
+        </div>
+
+        <div className="flex items-center gap-4">
           <WhatsAppChat
-            phoneNumber="27605915114"
+            phoneNumber="263774867068"
             message="Hi SYSTEMAR Team, I'll like to inquire about your School management system service"
           />
+
           <ScrollUp />
         </div>
       </div>
     </div>
-  );
+  </div>
+</footer>
+);
 };
 
 export default Footer;
