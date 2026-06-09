@@ -18,7 +18,6 @@ const plansData = [
       { text: "Cloud Hosting", included: true },
       { text: "Secure Server (SSL)", included: true },
       { text: "Bulk Email Msg", included: true },
-      { text: "Bulk SMS Integration (1,250)", included: true },
       { text: "Bulk Students Enrolment", included: true },
       { text: "Customization (Basic: Logo & School Name)", included: true },
       { text: "Staff Payroll", included: false },
@@ -47,7 +46,6 @@ const plansData = [
       { text: "Cloud Hosting", included: true },
       { text: "Secure Server (SSL)", included: true },
       { text: "Bulk Email Msg", included: true },
-      { text: "Bulk SMS Integration (2,500)", included: true },
       { text: "Bulk Students Enrolment", included: true },
       { text: "Customization (Basic+)", included: true },
       { text: "Staff Payroll", included: true },
@@ -76,7 +74,6 @@ const plansData = [
       { text: "Cloud Hosting", included: true },
       { text: "Secure Server (SSL)", included: true },
       { text: "Bulk Email Msg", included: true },
-      { text: "Bulk SMS Integration (3,500)", included: true },
       { text: "Bulk Students Enrolment", included: true },
       {
         text: "Customization (Basic + Report Design + Certificate)",
@@ -194,8 +191,14 @@ const PricingCard = ({ plan }) => {
         ))}
       </ul>
 
-      <CustomLink
+      {/* <CustomLink
         href={`https://paystack.com/pay/systemar_${plan.name.toLowerCase()}`}
+        className="mt-4 w-full flex justify-center"
+      >
+        ORDER NOW
+      </CustomLink> */}
+      <CustomLink
+        href={`/#demo_requisition`}
         className="mt-4 w-full flex justify-center"
       >
         ORDER NOW
