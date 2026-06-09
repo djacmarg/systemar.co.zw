@@ -19,7 +19,7 @@ export async function POST(req) {
       });
     }
     const emaildata = {
-      from: `SYSTEMAR | Tech Pundit Pty Ltd <${process.env.SMTP_EMAIL}>`,
+      from: `SYSTEMAR.CO.ZW <${process.env.SMTP_EMAIL}>`,
       to: process.env.APP_EMAIL,
       subject: "Request for " + servicePlan,
       mailheader: "Request for " + servicePlan,

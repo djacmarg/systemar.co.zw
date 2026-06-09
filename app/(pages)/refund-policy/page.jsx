@@ -10,13 +10,13 @@ const RefundPolicy = () => {
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">1. Overview</h2>
         <p>
-          At <strong>SYSTEMAR.ORG</strong>, we are committed to customer
+          At <strong>SYSTEMAR.co.zw</strong>, we are committed to customer
           satisfaction. If you are not entirely satisfied with your subscription
           to our SMS services, we’re here to help.
         </p>
         <p>
           This Refund & Cancellation Policy applies exclusively to SMS service
-          subscriptions purchased through SYSTEMAR.ORG and operated by{" "}
+          subscriptions purchased through SYSTEMAR.co.zw and operated by{" "}
           <strong>Tech Pundit (Pty) Ltd</strong>, South Africa.
         </p>
       </section>
@@ -44,7 +44,7 @@ const RefundPolicy = () => {
         </ul>
         <p className="mt-2">
           To request a refund, please contact us at{" "}
-          <span className="text-blue-600 underline">info@systemar.org</span>{" "}
+          <span className="text-blue-600 underline">sales@systemar.co.zw</span>{" "}
           with your account details and reason for cancellation.
         </p>
       </section>
@@ -74,7 +74,7 @@ const RefundPolicy = () => {
           4. Non-Refundable Services
         </h2>
         <p>
-          Other paid services on SYSTEMAR.ORG outside of the SMS subscription
+          Other paid services on SYSTEMAR.co.zw outside of the SMS subscription
           (e.g., custom development, onboarding, or consultancy) are
           non-refundable unless explicitly stated otherwise in a service
           agreement.
@@ -102,16 +102,16 @@ const RefundPolicy = () => {
           </p>
           <p>
             Email:{" "}
-            <span className="text-blue-600 underline">info@systemar.org</span>
+            <span className="text-blue-600 underline">sales@systemar.co.zw</span>
           </p>
           <p>
             Phone:{" "}
-            <span className="text-blue-600 underline">+27 6059 15114</span>
+            <span className="text-blue-600 underline">+263 77 486 70684</span>
           </p>
           <p>
             Website:{" "}
-            <a href="https://systemar.org" className="text-blue-600 underline">
-              https://systemar.org
+            <a href="https://systemar.co.zw" className="text-blue-600 underline">
+              https://systemar.co.zw
             </a>
           </p>
         </div>

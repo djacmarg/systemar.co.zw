@@ -231,13 +231,12 @@ const DemoRequisition = () => {
                 className="w-full p-3 border rounded"
               >
                 <option value="">Interested in...</option>
-                <option value="Silver">SMS Silver (R7,500)</option>
-                <option value="Gold">SMS Gold (R10,500)</option>
-                <option value="Platinum">SMS Platinum (R14,500)</option>
-                <option value="Custom Software Development">
-                  Custom Software Development
+                <option value="Silver $500">SMS Silver ($500)</option>
+                <option value="Gold $650">SMS Gold ($650)</option>
+                <option value="Platinum $900">SMS Platinum ($900)</option>
+                <option value="Custom SMS Package">
+                  Custom SMS PAckage
                 </option>
-                <option value="Other Services">Other Services</option>
               </select>
               {errors.servicePlan && (
                 <p className="text-red-500 text-sm mt-1">

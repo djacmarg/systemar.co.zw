@@ -4,7 +4,7 @@ export const EmailTemplate = (mailheader, mailbody, baseUrl) => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechPundit | SYSTEMAR Email</title>
+    <title>SYSTEMAR.CO.ZW Email</title>
     <style>
       body,
       html {
@@ -104,7 +104,7 @@ export const EmailTemplate = (mailheader, mailbody, baseUrl) => {
       <!-- Header -->
       <div class="header">
         <img
-          src="https://systemar.org/email_images/email_header_1.png"
+          src="https://sms.systemar.co.zw/email_images/email_header_1.png"
           alt="SYSTEMAR_email_template"
         />
       </div>
@@ -122,14 +122,18 @@ export const EmailTemplate = (mailheader, mailbody, baseUrl) => {
             proprietary service of Tech Pundit (Pty) Ltd. All rights reserved.
         </p>
         <p>
-          <a href="https://SYSTEMAR.org/newsletter/unsubscribe">Unsubscribe</a>
-          | <a href="https://SYSTEMAR.org/privacy-policy">Privacy Policy</a> |
-          <a href="https://SYSTEMAR.org" target="_blank">Visit Website</a>
+          <a href="https://systemar.co.zw/newsletter/unsubscribe">Unsubscribe</a>
+          | <a href="https://systemar.co.zw/privacy-policy">Privacy Policy</a> |
+          <a href="https://systemar.co.zw" target="_blank">Visit Website</a>
         </p>
         <hr />
-        <p> 279 President Street Germiston, South Africa.</p>
+        <p> Office 1, Highfield Post Office,
+        
+            Highfield, Harare, 
+        
+            Zimbabwe
         <p>
-         <a href="https://SYSTEMAR.org">Email: info@SYSTEMAR.org</a>
+         <a href="https://systemar.co.zw">Email: sales@systemar.co.zw</a>
         </p>
       </div>
     </div>

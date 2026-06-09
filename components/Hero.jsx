@@ -9,7 +9,7 @@ const Hero = () => {
     <section
       className="mt-[-50px] h-auto md:h-screen flex flex-col justify-center items-center relative bg-cover bg-center text-white"
       style={{
-        backgroundImage: "url('/images/systemar_hero_section_2.webp')",
+        backgroundImage: "url('/images/systemar_hero_section.webp')",
       }}
     >
       {/* Dark overlay */}

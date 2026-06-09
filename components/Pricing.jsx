@@ -7,7 +7,7 @@ const plansData = [
   {
     name: "SILVER",
     description: "Just a starter to see what is obtainable",
-    price: "7,500",
+    price: "500.00",
     isPopular: false,
     hasUpgradeBanner: false,
     features: [
@@ -39,7 +39,7 @@ const plansData = [
     description: "Appropriate for moderate users.",
     isPopular: true,
     hasUpgradeBanner: false,
-    price: "10,500",
+    price: "650.00",
     features: [
       { text: "6+ Dashboards", included: true },
       { text: "10+ Modules", included: true },
@@ -67,7 +67,7 @@ const plansData = [
   {
     name: "PLATINUM",
     description: "Maximum Potentials including free Version Upgrades",
-    price: "14,500",
+    price: "900.00",
     isPopular: false,
     hasUpgradeBanner: true,
     features: [

@@ -11,11 +11,10 @@ const PrivacyPolicy = () => {
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">1. Introduction</h2>
         <p>
-          Welcome to <strong>SYSTEMAR.ORG</strong>, a cloud-based school
+          Welcome to <strong>SYSTEMAR.co.zw</strong>, a cloud-based school
           management system designed to streamline educational administration
-          for institutions at all levels. SYSTEMAR.ORG (“we”, “our”, or “us”) is
-          owned and operated by <strong>Tech Pundit (Pty) Ltd</strong>, a
-          private company based in South Africa.
+          for institutions at all levels. SYSTEMAR.co.zw (“we”, “our”, or “us”) is
+          owned and operated by <strong>Tech Pundit (Pty) Ltd</strong>, with office in Harare, Zimbabwe.
         </p>
         <p>
           This Privacy Policy outlines how we collect, use, store, share, and
@@ -168,7 +167,7 @@ const PrivacyPolicy = () => {
           We may update this Privacy Policy from time to time. Changes will be
           posted on this page with an updated effective date. Where applicable,
           we will also notify registered subscribers via email. Continued use of
-          SYSTEMAR.ORG after such changes indicates your acceptance of the
+          SYSTEMAR.co.zw after such changes indicates your acceptance of the
           revised policy.
         </p>
       </section>
@@ -183,16 +182,17 @@ const PrivacyPolicy = () => {
           <p>
             <strong>Tech Pundit (Pty) Ltd</strong>
           </p>
-          <p>Email: info@systemar.org</p>
-          <p>Phone: +27 6059 15114</p>
+          <p>Email: sales@systemar.co.zw</p>
+          <p>Phone: +263 77 486 7068</p>
           <p>
-            Location: 279 President Street, Germiston, 1401, Gauteng South
-            Africa.
+            Location: Office 1, Highfield Post Office,
+Highfield, Harare
+Zimbabwe
           </p>
           <p>
             Website:{" "}
-            <a href="https://systemar.org" className="text-blue-600 underline">
-              https://systemar.org
+            <a href="https://systemar.co.zw" className="text-blue-600 underline">
+              https://systemar.co.zw
             </a>
           </p>
         </div>

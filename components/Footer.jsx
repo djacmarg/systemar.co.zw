@@ -12,7 +12,7 @@ return ( <footer
      overflow-hidden
      bg-gradient-to-br
      from-[#00ACC1]
-     via-[#0097A7]
+     via-[#009900]
      to-[#006064]
      text-white
      min-h-[50vh]
