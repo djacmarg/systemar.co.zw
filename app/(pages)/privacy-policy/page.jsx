@@ -185,9 +185,11 @@ const PrivacyPolicy = () => {
           <p>Email: sales@systemar.co.zw</p>
           <p>Phone: +263 77 486 7068</p>
           <p>
-            Location: Office 1, Highfield Post Office,
-Highfield, Harare
-Zimbabwe
+           Office 1, Highfield Post Office,
+            <br />
+            Digital Information Center, Harare
+            <br />
+            Zimbabwe
           </p>
           <p>
             Website:{" "}
