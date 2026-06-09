@@ -5,7 +5,7 @@ import { MessageCircleMore } from "lucide-react";
 
 export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "263774867068"; // Replace with your WhatsApp phone number
+  const phoneNumber = "263712540530"; // Replace with your WhatsApp phone number
   const whatsappMessage = "Hello! I have a question about your services."; // Default message
   const toggleChat = () => setIsOpen(!isOpen);
   return (

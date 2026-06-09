@@ -127,10 +127,11 @@ export const EmailTemplate = (mailheader, mailbody, baseUrl) => {
           <a href="https://systemar.co.zw" target="_blank">Visit Website</a>
         </p>
         <hr />
-        <p> Office 1, Highfield Post Office,
+        <p> 
+        Office 1, Highfield Post Office,
         
-            Highfield, Harare, 
-        
+            Digital Information Center, Harare
+           
             Zimbabwe
         <p>
          <a href="https://systemar.co.zw">Email: sales@systemar.co.zw</a>

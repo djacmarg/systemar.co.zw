@@ -180,7 +180,7 @@ const DemoRequisition = () => {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone: 27 00 000 0000"
+                  placeholder="Phone: 263 00 000 0000"
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full p-3 border rounded"
@@ -235,7 +235,7 @@ const DemoRequisition = () => {
                 <option value="Gold $650">SMS Gold ($650)</option>
                 <option value="Platinum $900">SMS Platinum ($900)</option>
                 <option value="Custom SMS Package">
-                  Custom SMS PAckage
+                  Custom SMS Package
                 </option>
               </select>
               {errors.servicePlan && (

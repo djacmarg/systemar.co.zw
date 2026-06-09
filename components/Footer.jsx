@@ -73,7 +73,7 @@ return ( <footer
           <p>
             Office 1, Highfield Post Office,
             <br />
-            Highfield, Harare
+            Digital Information Center, Harare
             <br />
             Zimbabwe
           </p>
