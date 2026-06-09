@@ -1,8 +1,8 @@
 module.exports = {
   apps: [
     {
-      name: "SYSTEMAR-APP",
-      cwd: "/var/www/systemar/client",
+      name: "SYSTEMAR-CO-ZW-APP",
+      cwd: "/var/www/systemar.co.zw/client",
       script: "npm",
       args: "run start",
       env: {
