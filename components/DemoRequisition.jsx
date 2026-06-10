@@ -33,7 +33,7 @@ const DemoRequisition = () => {
     if (!formData.nameOfSchool.trim())
       newErrors.nameOfSchool = "School name is required";
     if (!formData.numberOfStudents || formData.numberOfStudents <= 0) {
-      newErrors.numberOfStudents = "Number of students is required";
+      newErrors.numberOfStudents = "No of students is required";
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
