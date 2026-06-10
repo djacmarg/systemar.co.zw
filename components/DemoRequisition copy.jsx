@@ -33,7 +33,7 @@ const DemoRequisition = () => {
     if (!formData.nameOfSchool.trim())
       newErrors.nameOfSchool = "School name is required";
     if (!formData.numberOfStudents || formData.numberOfStudents <= 0) {
-      newErrors.numberOfStudents = "Number of students is required";
+      newErrors.numberOfStudents = "Valid number of students is required";
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
@@ -206,7 +206,11 @@ const DemoRequisition = () => {
             "
           />
 
-         <ErrorMessage message={errors.fullname} />
+          {errors.fullname && (
+            <p className="mt-2 text-sm text-red-500">
+              {errors.fullname}
+            </p>
+          )}
         </div>
 
         {/* Email + Phone */}
@@ -220,6 +224,9 @@ const DemoRequisition = () => {
               onChange={handleChange}
               className="w-full rounded-xl border border-slate-200 px-4 py-4 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-100 outline-none"
             />
+            {errors.email && (
+              <p className="mt-2 text-sm text-red-500">{errors.email}</p>
+            )}
             <ErrorMessage message={errors.email} />
           </div>
 
@@ -232,7 +239,12 @@ const DemoRequisition = () => {
               onChange={handleChange}
               className="w-full rounded-xl border border-slate-200 px-4 py-4 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-100 outline-none"
             />
-           <ErrorMessage message={errors.phone} />
+           {errors.phone && (
+  <div className="mt-2 flex items-center gap-2 text-red-600 bg-red-50 border-l-4 border-red-500 pl-3 py-2 rounded-r-lg">
+    <span className="text-base">⚠️</span>
+    <p className="text-sm font-medium">{errors.phone}</p>
+  </div>
+)}
           </div>
         </div>
 
@@ -247,7 +259,12 @@ const DemoRequisition = () => {
               onChange={handleChange}
               className="w-full rounded-xl border border-slate-200 px-4 py-4 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-100 outline-none"
             />
-          <ErrorMessage message={errors.nameOfSchool} />
+          {errors.nameOfSchool && (
+  <div className="mt-2 bg-red-100 border border-red-300 rounded-2xl p-3 flex items-center gap-3">
+    <div className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">!</div>
+    <p className="text-red-700 text-sm font-medium">{errors.nameOfSchool}</p>
+  </div>
+)}
           </div>
 
           <div>
@@ -259,7 +276,11 @@ const DemoRequisition = () => {
               onChange={handleChange}
               className="w-full rounded-xl border border-slate-200 px-4 py-4 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-100 outline-none"
             />
-          <ErrorMessage message={errors.numberOfStudents} />
+            {errors.numberOfStudents && (
+              <p className="mt-2 text-sm text-red-500">
+                {errors.numberOfStudents}
+              </p>
+            )}
           </div>
         </div>
 
@@ -290,7 +311,11 @@ const DemoRequisition = () => {
               Custom SMS Package
             </option>
           </select>
-          <ErrorMessage message={errors.servicePlan} />
+           {errors.servicePlan && (
+              <p className="mt-2 text-sm text-red-500">
+                {errors.servicePlan}
+              </p>
+            )}
         </div>
 
         {/* Human Verification */}
@@ -314,7 +339,11 @@ const DemoRequisition = () => {
                 } text-gray-800 rounded focus:outline-none focus:border-cyan-400 transition`}
            
           />
-          <ErrorMessage message={errors.humanAnswer} />
+           {errors.humanAnswer && (
+              <p className="mt-2 text-sm text-red-500">
+                {errors.humanAnswer}
+              </p>
+            )}
         </div>
 
         {/* Terms */}
@@ -332,7 +361,11 @@ const DemoRequisition = () => {
           </p>
           
         </div>
-        <ErrorMessage message={errors.terms} />
+         {errors.terms && (
+              <p className="mt-2 text-sm text-red-500">
+                {errors.terms}
+              </p>
+            )}
 
         {/* Submit */}
         <CustomButton
