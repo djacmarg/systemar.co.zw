@@ -1,197 +1,200 @@
+"use client";
 import Image from "next/image";
-import logo_botton from "@/public/images/systemar_logo_big.png";
 import Link from "next/link";
+import logo_botton from "@/public/images/systemar_logo_big.png";
 import ScrollUp from "./ScrollUp";
 import WhatsAppChat from "./WhatsAppChat";
+import { CustomLink } from "./CustomButtonLink";
+import { ScrollToView } from "./ScrollToView";
 
 const Footer = () => {
-return ( <footer
-   id="contact"
-   className="
-     relative
-     overflow-hidden
-     bg-gradient-to-br
-     from-[#00ACC1]
-     via-[#009900]
-     to-[#006064]
-     text-white
-     min-h-[50vh]
-     px-6
-     py-20
-     md:px-[8%]
-   "
- >
-{/* Decorative Background Effects */} <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-300/10 rounded-full blur-3xl" /> <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+  return (
+    <footer
+      id="contact"
+      className="
+        relative
+        overflow-hidden
+        bg-slate-950
+        text-white
+      "
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-gray-900" />
 
-  {/* Dot Pattern */}
-  <div
-    className="absolute inset-0 opacity-5"
-    style={{
-      backgroundImage:
-        "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-      backgroundSize: "30px 30px",
-    }}
-  />
+      <div className="absolute top-0 left-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
 
-  <div className="relative z-10 max-w-7xl mx-auto">
-    {/* Main Footer Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Logo Section */}
-      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-        <Image
-          src={logo_botton}
-          alt="SYSTEMAR Logo"
-          className="w-full max-w-[220px]"
-        />
+      {/* CTA Section */}
+      <div className="relative z-10 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
+          <span
+            className="
+              inline-flex
+              rounded-full
+              border
+              border-cyan-400/20
+              bg-cyan-500/10
+              px-4
+              py-1
+              text-sm
+              font-medium
+              text-cyan-300
+            "
+          >
+            Ready to Get Started?
+          </span>
 
-        <p className="mt-4 text-sm text-white/80 leading-relaxed">
-          Empowering schools with modern digital solutions for administration,
-          communication, finance, and academic management.
-        </p>
-      </div>
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold">
+            Transform the way
+            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              your school operates
+            </span>
+          </h2>
 
-      {/* Contact Section */}
-      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
-          Contact
-        </h4>
-
-        <div className="space-y-3 text-sm text-white/85">
-          <p>
-            <span className="font-semibold">Phone:</span> +263 77 486 7068
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+            Join institutions using SYSTEMAR to streamline administration,
+            improve communication, and enhance educational outcomes.
           </p>
 
-          <p>
-            <span className="font-semibold">Email:</span>{" "}
-            sales@systemar.co.zw
-          </p>
+          
 
-          <p>
-            <span className="font-semibold">Web:</span> www.systemar.co.zw
-          </p>
-
-          <p>
-            Office 1, Highfield Post Office,
-            <br />
-            Digital Information Center, Harare
-            <br />
-            Zimbabwe
-          </p>
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
+                        <CustomLink
+                          href="/#demo_requisition"
+                          onClick={ScrollToView}
+                          className="
+                            px-8
+                            py-4
+                            text-base
+                            rounded-full
+                            font-semibold
+                            "
+                        >
+                          Request Free Demo
+                        </CustomLink>
+                        </div>    
         </div>
       </div>
 
-      {/* Quick Links */}
-      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
-          Quick Links
-        </h4>
+      {/* Main Footer */}
+      <div className="relative z-10">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid gap-12 lg:grid-cols-4">
+            {/* Brand */}
+            <div className="lg:col-span-2">
+              <Image
+                src={logo_botton}
+                alt="SYSTEMAR Logo"
+                className="w-56"
+              />
 
-        <ul className="space-y-3">
-          <li>
-            <Link
-              href="/"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Home
-            </Link>
-          </li>
+              <p className="mt-6 max-w-md text-slate-400 leading-8 text-lg">
+                SYSTEMAR School Management System empowers schools with
+                cloud-based tools for admissions, finance, communication,
+                reporting, attendance, and administration.
+              </p>
 
-          <li>
-            <Link
-              href="/about"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              About
-            </Link>
-          </li>
+              <div className="mt-8 flex items-center gap-4">
+                <WhatsAppChat
+                  phoneNumber="263774867068"
+                  message="Hi SYSTEMAR Team, I'd like to learn more about your School Management System."
+                />
 
-          <li>
-            <Link
-              href="/#services"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Services
-            </Link>
-          </li>
+                <ScrollUp />
+              </div>
+            </div>
 
-          <li>
-            <Link
-              href="/#pricing"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Pricing
-            </Link>
-          </li>
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xl uppercase font-semibold text-white">
+                Navigation
+              </h3>
 
-          <li>
-            <Link
-              href="/#contact"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
+              <ul className="mt-6 space-y-4 text-lg">
+                {[
+                  ["Home", "/"],
+                  ["About", "/about"],
+                  ["Services", "/#services"],
+                  ["Pricing", "/#pricing"],
+                  ["Contact", "/#contact"],
+                ].map(([label, href]) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="
+                        text-slate-400
+                        transition
+                        hover:text-cyan-300
+                      "
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Legal */}
-      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-        <h4 className="pb-4 text-xl font-bold uppercase tracking-wider text-cyan-100">
-          Legal
-        </h4>
+            {/* Contact */}
+            <div>
+              <h3 className="text-xl uppercase font-semibold text-white">
+                Contact
+              </h3>
 
-        <ul className="space-y-3">
-          <li>
-            <Link
-              href="/terms-of-use"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Terms of Use
-            </Link>
-          </li>
+              <div className="mt-6 space-y-4 text-slate-400 text-lg">
+                <p>+263 77 486 7068</p>
 
-          <li>
-            <Link
-              href="/privacy-policy"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Privacy Policy
-            </Link>
-          </li>
+                <p>sales@systemar.co.zw</p>
 
-          <li>
-            <Link
-              href="/refund-policy"
-              className="text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
-            >
-              Refund Policy
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
+                <p>www.systemar.co.zw</p>
 
-    {/* Bottom Section */}
-    <div className="mt-16 border-t border-white/10 pt-8">
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-        <div className="text-sm text-white/75 text-center lg:text-left">
-          &copy; 2020 - {new Date().getFullYear()} SYSTEMAR, a proprietary
-          service of Tech Pundit (Pty) Ltd. All rights reserved.
+                <p>
+                  Office 1, Highfield Post Office
+                  <br />
+                  Digital Information Center
+                  <br />
+                  Harare, Zimbabwe
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="my-12 h-px bg-white/10" />
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <p className="text-sm text-slate-500">
+              © 2020 - {new Date().getFullYear()} SYSTEMAR. All rights
+              reserved.
+            </p>
+
+            <div className="flex gap-6 text-lg text-slate-500">
+              <Link
+                href="/terms-of-use"
+                className="hover:text-cyan-300 transition"
+              >
+                Terms
+              </Link>
+
+              <Link
+                href="/privacy-policy"
+                className="hover:text-cyan-300 transition"
+              >
+                Privacy
+              </Link>
+
+              <Link
+                href="/refund-policy"
+                className="hover:text-cyan-300 transition"
+              >
+                Refund Policy
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <div className="flex items-center gap-4">
-          <WhatsAppChat
-            phoneNumber="263774867068"
-            message="Hi SYSTEMAR Team, I'll like to inquire about your School management system service"
-          />
-
-          <ScrollUp />
-        </div>
       </div>
-    </div>
-  </div>
-</footer>
-);
+    </footer>
+  );
 };
 
 export default Footer;

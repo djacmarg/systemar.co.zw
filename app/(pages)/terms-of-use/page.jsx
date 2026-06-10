@@ -1,97 +1,301 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+const sections = [
+  {
+    title: "1. Introduction",
+    content: `
+SYSTEMAR is a cloud-based school management system designed for institutions of all levels. It provides out-of-the-box tools for efficient data handling, records management, and administrative automation.
+    `,
+  },
+  {
+    title: "2. Scalability and Adaptability",
+    content: `
+Our School Management System (SMS) scales from small private schools to large multi-campus institutions. SYSTEMAR adapts to each school’s needs while remaining flexible for further customization.
+
+Its modular architecture allows institutions to configure workflows, features, and integrations based on their operational requirements.
+    `,
+  },
+  {
+    title: "3. Ease of Use",
+    content: `
+SYSTEMAR is designed to be intuitive and accessible. Users can easily manage students, staff, attendance, academic reports, billing, and more through a simple and structured interface.
+    `,
+  },
+  {
+    title: "4. Training and Support",
+    content: `
+Every subscription includes comprehensive onboarding to ensure smooth adoption of the system.
+    `,
+    list: [
+      "Initial system setup guidance",
+      "Feature walkthroughs and tutorials",
+      "Live onboarding sessions (where applicable)",
+      "Ongoing email and phone support",
+    ],
+    extraContent: `
+Our team remains available to assist with system usage and customization support whenever needed.
+    `,
+  },
+  {
+    title: "5. Demo and Trial Access",
+    content: `
+Trial users receive a short onboarding session to help them explore SYSTEMAR effectively during evaluation.
+
+We encourage full exploration of the platform and welcome any questions or customization requests during the trial period.
+    `,
+  },
+  {
+    title: "6. Acceptance of Terms",
+    content: `
+By using SYSTEMAR (trial or subscription), you agree to these Terms of Usage. We may update these terms periodically, and continued use signifies acceptance of any revisions.
+    `,
+  },
+];
+
+const AccordionItem = ({
+  title,
+  content,
+  list,
+  extraContent,
+  isOpen,
+  onClick,
+}) => {
+  return (
+    <div
+      className="
+        overflow-hidden
+        rounded-[24px]
+        border
+        border-slate-200
+        bg-white/90
+        shadow-md
+        backdrop-blur-sm
+      "
+    >
+      <button
+        onClick={onClick}
+        className="
+          flex
+          w-full
+          items-center
+          justify-between
+          p-6
+          text-left
+        "
+      >
+        <h2 className="text-lg md:text-xl font-semibold text-slate-900">
+          {title}
+        </h2>
+
+        <ChevronDown
+          className={`h-5 w-5 text-slate-500 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "grid-rows-[1fr]"
+            : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-6 pb-6">
+            {content && (
+              <p className="leading-8 text-slate-600 whitespace-pre-line">
+                {content}
+              </p>
+            )}
+
+            {list && (
+              <ul className="mt-4 space-y-3">
+                {list.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-slate-600"
+                  >
+                    <div className="mt-2 h-2 w-2 rounded-full bg-cyan-500" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {extraContent && (
+              <p className="mt-4 leading-8 text-slate-600 whitespace-pre-line">
+                {extraContent}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const TermsOfUsage = () => {
+  const [openSections, setOpenSections] = useState([0]);
+
+  const toggleSection = (index) => {
+    setOpenSections((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    );
+  };
+
+  const expandAll = () => {
+    setOpenSections(sections.map((_, index) => index));
+  };
+
+  const collapseAll = () => {
+    setOpenSections([]);
+  };
+
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 text-gray-800 text-[14px]">
-      <h1 className="text-3xl font-bold mb-6 text-center">Terms of Usage</h1>
+    <section className="relative overflow-hidden pt-32 pb-24 px-6 md:px-[10%]">
+      {/* Background */}
+      <div className="absolute inset-0 -z-20 bg-gradient-to-b from-cyan-50 via-white to-white" />
 
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">1. Introduction</h2>
-        <p>
-          SYSTEMAR, developed by <strong>Tech Pundit (Pty) Ltd</strong>, is a
-          powerful and flexible cloud-based management system designed for use
-          in <strong>schools</strong> at <strong>various levels</strong>. Our
-          system offers out-of-the-box tools for efficient data handling,
-          records management, and administrative automation.
-        </p>
-      </section>
+      <div className="absolute top-0 left-0 -z-10 h-72 w-72 rounded-full bg-cyan-100 opacity-40 blur-3xl" />
 
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">
-          2. Scalability and Adaptability
-        </h2>
-        <p>
-          Our School Management System (SMS) is highly scalable, catering to
-          institutions of all sizes—from small private schools to large
-          multi-campus facilities. SYSTEMAR is designed to accommodate
-          individual school needs right out of the box, with the flexibility to
-          be customized further to suit your institution’s specific
-          requirements.
-        </p>
-        <p className="mt-2">
-          We believe that no two institutions are the same. SYSTEMAR's modular
-          architecture allows for personalized features, workflows, and
-          integrations to be added based on your administrative or academic
-          environment.
-        </p>
-      </section>
+      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-sky-100 opacity-40 blur-3xl" />
 
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">3. Ease of Use</h2>
-        <p>
-          While SYSTEMAR is designed to be user-friendly and intuitive for
-          anyone who can read and write, we go the extra mile to ensure smooth
-          onboarding and usage. Users can easily navigate through features like
-          student and staff management, attendance tracking, academic reports,
-          billing, and more.
-        </p>
-      </section>
+      <div className="mx-auto max-w-5xl">
+        {/* Hero */}
+        <div className="text-center">
+          <span className="inline-flex rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1 text-sm font-medium text-cyan-700">
+            Legal Information
+          </span>
 
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">4. Training and Support</h2>
-        <p>
-          Every SYSTEMAR subscription includes{" "}
-          <strong>comprehensive onboarding training</strong> to help your team
-          understand how to get the best out of the system. This includes:
-        </p>
-        <ul className="list-disc pl-5 space-y-1 mt-2">
-          <li>Initial system setup guidance</li>
-          <li>Feature-specific tutorials</li>
-          <li>Live walkthroughs (when applicable)</li>
-          <li>Ongoing support via email or phone</li>
-        </ul>
-        <p className="mt-2">
-          Even though SYSTEMAR is easy to use, our team is available to guide
-          you through system functionalities and provide assistance as needed.
-        </p>
-      </section>
+          <h1 className="mt-6 text-4xl md:text-6xl font-bold text-slate-900">
+            Terms of Usage
+          </h1>
 
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">5. Demo and Trial Access</h2>
-        <p>
-          All demo or trial packages of SYSTEMAR come with a{" "}
-          <strong>brief training session</strong> to help users get started
-          quickly. This ensures that even during your evaluation period, your
-          team can explore the key functionalities effectively and make an
-          informed decision.
-        </p>
-        <p className="mt-2">
-          We encourage trial users to fully explore the system’s potential and
-          contact us with any questions or customization requests.
-        </p>
-      </section>
+          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-slate-600">
+            Please read these Terms of Usage carefully before using SYSTEMAR. 
+            These terms govern your access to and use of our school management platform.
+          </p>
 
-      <section>
-        <h2 className="text-xl font-semibold mb-2">6. Acceptance of Terms</h2>
-        <p>
-          By accessing or using SYSTEMAR, whether via a trial or a full
-          subscription, you agree to abide by these Terms of Usage. These terms
-          may be updated periodically to reflect system enhancements or policy
-          changes. Continued use of the platform after updates constitutes
-          acceptance of the revised terms.
-        </p>
-      </section>
-    </div>
+          <div className="mt-8 inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600">
+            Effective Date: January 01, 2025
+          </div>
+
+          {/* Controls */}
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <button
+              onClick={expandAll}
+              className="
+                rounded-full
+                border
+                border-cyan-200
+                bg-cyan-50
+                px-5
+                py-2
+                text-sm
+                font-medium
+                text-cyan-700
+                transition
+                hover:bg-cyan-100
+              "
+            >
+              Expand All
+            </button>
+
+            <button
+              onClick={collapseAll}
+              className="
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                px-5
+                py-2
+                text-sm
+                font-medium
+                text-slate-600
+                transition
+                hover:bg-slate-50
+              "
+            >
+              Collapse All
+            </button>
+          </div>
+        </div>
+
+        {/* Sections */}
+        <div className="mt-16 space-y-4">
+          {sections.map((section, index) => (
+            <AccordionItem
+              key={section.title}
+              title={section.title}
+              content={section.content}
+              list={section.list}
+              extraContent={section.extraContent}
+              isOpen={openSections.includes(index)}
+              onClick={() => toggleSection(index)}
+            />
+          ))}
+        </div>
+
+        {/* Contact Card */}
+        <div
+          className="
+            mt-16
+            rounded-[36px]
+            bg-gradient-to-r
+            from-cyan-500
+            to-blue-600
+            p-10
+            text-white
+          "
+        >
+          <h2 className="text-3xl font-bold">
+            Questions About These Terms?
+          </h2>
+
+          <p className="mt-4 text-white/90">
+            Our support team is happy to clarify any part of these Terms of Usage 
+            or help you understand how they apply to your school.
+          </p>
+
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-semibold">
+                SYSTEMAR
+              </h3>
+
+              <p className="mt-3 text-white/90 leading-7">
+                Office 1, Highfield Post Office
+                <br />
+                Digital Information Center
+                <br />
+                Harare, Zimbabwe
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <p>
+                <strong>Email:</strong> sales@systemar.co.zw
+              </p>
+
+              <p>
+                <strong>Phone:</strong> +263 77 486 7068
+              </p>
+
+              <p>
+                <strong>Website:</strong> systemar.co.zw
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

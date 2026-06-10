@@ -7,41 +7,177 @@ import { ScrollToView } from "./ScrollToView";
 const Hero = () => {
   return (
     <section
-      className="mt-[-50px] h-auto md:h-screen flex flex-col justify-center items-center relative bg-cover bg-center text-white"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        flex
+        items-center
+        justify-center
+        pt-[100px]
+      "
       style={{
         backgroundImage: "url('/images/systemar_hero_section.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/10"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-950/60" />
 
-      {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-4xl text-center px-4 py-20 sm:py-28 md:py-32">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
-          SYSTEMAR::.
-        </h1>
-        <p className="text-sm sm:text-base md:text-lg text-gray-100 px-2 sm:px-8 md:px-20 lg:px-40">
-          Enhance the efficiency of your school with our module-rich,
-          cloud-based Electronic Record System Solutions.{" "}
-          <br className="hidden md:block" />
-          With Systemar SMS, you will achieve more with less.
-        </p>
+      {/* Decorative Blur */}
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+      <div className="absolute right-0 bottom-20 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <CustomLink
-            href="/#services"
-            className="py-2 px-6 text-sm"
-            onClick={ScrollToView}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10">
+        <div className="max-w-4xl text-center mx-auto">
+          {/* Badge */}
+          <div
+            className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-cyan-400/30
+              bg-cyan-500/10
+              px-4
+              py-2
+              text-sm
+              font-medium
+              text-cyan-300
+              backdrop-blur-sm
+            "
           >
-            Discover More
-          </CustomLink>
-          <CustomLink
-            href="/#demo_requisition"
-            className="py-2 px-6 text-sm"
-            onClick={ScrollToView}
+            With Systemar You can
+          </div>
+
+          {/* Heading */}
+          <h1
+            className="
+              mt-8
+              text-5xl
+              font-bold
+              leading-tight
+              text-white
+              md:text-7xl
+            "
           >
-            Request a Demo
-          </CustomLink>
+            Manage Your School
+            <span className="block bg-gradient-to-r from-cyan-100 to-blue-600 bg-clip-text text-transparent">
+              Smarter & Faster
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p
+            className="
+              mx-auto
+              mt-8
+              max-w-3xl
+              text-lg
+              leading-8
+              text-slate-300
+              md:text-xl
+            "
+          >
+            Streamline admissions, attendance, reporting, communication,
+            invoicing, and administration with a powerful cloud-based School
+            Management System built for modern educational institutions.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <CustomLink
+              href="/#demo_requisition"
+              onClick={ScrollToView}
+              className="
+                px-8
+                py-4
+                text-base
+                rounded-xl
+                font-semibold
+              "
+            >
+              Request Free Demo
+            </CustomLink>
+
+            <CustomLink
+              href="/#services"
+              onClick={ScrollToView}
+              className="
+                px-8
+                py-4
+                text-base
+                rounded-xl
+                border
+                border-white/20
+                bg-white/10
+                backdrop-blur-sm
+                hover:bg-white/20
+              "
+            >
+              Explore Features
+            </CustomLink>
+          </div>
+
+          {/* Stats */}
+          <div
+            className="
+              mt-10
+              mb-20
+              grid
+              gap-6
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              px-2 py-4
+              backdrop-blur-md
+              md:grid-cols-3
+            "
+          >
+            <div>
+              <h3 className="text-3xl font-bold text-white">100%</h3>
+              <p className="mt-2 text-slate-300">
+                Cloud Based Platform
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-white">24/7</h3>
+              <p className="mt-2 text-slate-300">
+                Access Anywhere
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-white">All-In-One</h3>
+              <p className="mt-2 text-slate-300">
+                School Management
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          -translate-x-1/2
+          text-white/70
+        "
+      >
+        <div className="flex flex-col items-center">
+          <span className="text-xs uppercase tracking-widest">
+            Scroll
+          </span>
+
+          <div className="mt-2 h-10 w-6 rounded-full border border-white/30 flex justify-center">
+            <div className="mt-2 h-2 w-2 rounded-full bg-white animate-bounce" />
+          </div>
         </div>
       </div>
     </section>

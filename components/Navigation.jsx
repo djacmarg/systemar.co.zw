@@ -1,159 +1,203 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import logo_icon from "@/public/images/favicon2.png";
 import Image from "next/image";
 import Link from "next/link";
 import { CustomLink } from "./CustomButtonLink";
 import { ScrollToView } from "./ScrollToView";
-import { Menu, X } from "lucide-react"; // Optional icons
+import { Menu, X } from "lucide-react";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/#contact" },
+];
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 50);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const navVariants = {
-    initial: {
-      height: "70px",
-      background: "#00BCD4",
-    },
-    scrolled: {
-      height: "55px",
-      background: "#0097A7",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   return (
-    <motion.nav
-      variants={navVariants}
-      animate={scrolled ? "scrolled" : "initial"}
-      className="fixed top-0 left-0 w-full z-50"
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-6 py-3">
-        {/* Left: Logo */}
-        <Link href="/" className="flex gap-x-2 items-center">
-          <Image src={logo_icon} alt="logo" className="h-5 w-5" />
-          <span className="text-white text-lg font-semibold">SYSTEMAR</span>
-        </Link>
-
-        {/* Middle: Desktop Menu */}
-        <div className="hidden md:flex space-x-6 text-white text-sm font-medium">
-          <Link onClick={ScrollToView} href="/" className="cta-btn group">
-            <span className="cta-anim"></span>
-            <span className="relative">Home</span>
-          </Link>
-          <Link onClick={ScrollToView} href="/about" className="cta-btn group">
-            <span className="cta-anim"></span>
-            <span className="relative">About Us</span>
-          </Link>
-          <Link
-            onClick={ScrollToView}
-            href="/#services"
-            className="cta-btn group"
-          >
-            <span className="cta-anim"></span>
-            <span className="relative">Services</span>
-          </Link>
-          <Link
-            onClick={ScrollToView}
-            href="/#pricing"
-            className="cta-btn group"
-          >
-            <span className="cta-anim"></span>
-            <span className="relative">Pricing</span>
-          </Link>
-          <Link
-            onClick={ScrollToView}
-            href="/#contact"
-            className="cta-btn group"
-          >
-            <span className="cta-anim"></span>
-            <span className="relative">Contact</span>
-          </Link>
-        </div>
-
-        {/* Right: CTA Button (Desktop) */}
-        <div className="hidden md:block">
-          <CustomLink
-            onClick={ScrollToView}
-            href="/#demo_requisition"
-            className="uppercase text-[14px] text-nowrap"
-          >
-            Request Demo
-          </CustomLink>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-white focus:outline-none"
+    <>
+      <motion.nav
+        initial={false}
+        animate={{
+          top: scrolled ? 16 : 0,
+          scale: scrolled ? 0.98 : 1,
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed left-0 right-0 z-50"
+      >
+        <div
+          className={`
+            mx-auto
+            max-w-7xl
+            transition-all
+            duration-300
+            ${
+              scrolled
+                ? "mx-4 rounded-2xl border border-white/10 bg-slate-900/75 backdrop-blur-xl shadow-2xl"
+                : "bg-transparent text-cyan-900"
+            }
+          `}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          <div className="flex h-20 items-center justify-between px-6 lg:px-8">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src={logo_icon}
+                alt="Systemar"
+                className="h-7 w-7"
+              />
 
-      {/* Mobile Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0097A7] px-6 pb-4 pt-2 text-white text-sm space-y-2">
-          <Link
-            onClick={() => setMobileMenuOpen(false)}
-            href="/"
-            className="block"
-          >
-            Home
-          </Link>
-          <Link
-            onClick={() => setMobileMenuOpen(false)}
-            href="/about"
-            className="block"
-          >
-            About Us
-          </Link>
-          <Link
-            onClick={() => setMobileMenuOpen(false)}
-            href="/#services"
-            className="block"
-          >
-            Services
-          </Link>
-          <Link
-            onClick={() => setMobileMenuOpen(false)}
-            href="/#pricing"
-            className="block"
-          >
-            Pricing
-          </Link>
-          <Link
-            onClick={() => setMobileMenuOpen(false)}
-            href="/#contact"
-            className="block"
-          >
-            Contact
-          </Link>
-          <CustomLink
-            onClick={() => setMobileMenuOpen(false)}
-            href="/#demo_requisition"
-            className="uppercase text-[14px] block mt-2 max-w-[130px] text-nowrap p-2"
-          >
-            Request Demo
-          </CustomLink>
+              <div>
+                <span className="block text-lg font-bold text-white">
+                  SYSTEMAR
+                </span>
+
+                <span className="text-xs text-cyan-300">
+                  School Management System
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {links.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={ScrollToView}
+                  className="
+                    text-sm
+                    font-medium
+                    text-white/80
+                    transition-all
+                    duration-300
+                    hover:text-cyan-300
+                  "
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:block">
+              <CustomLink
+                href="/#demo_requisition"
+                onClick={ScrollToView}
+                className="
+                  px-6
+                  py-3
+                  rounded-full
+                  text-sm
+                  font-semibold
+                "
+              >
+                Request Demo
+              </CustomLink>
+            </div>
+
+            {/* Mobile Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="
+                md:hidden
+                text-white
+                p-2
+                rounded-lg
+                hover:bg-white/10
+              "
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      )}
-    </motion.nav>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2 }}
+            className="
+              fixed
+              top-24
+              left-4
+              right-4
+              z-40
+              rounded-2xl
+              border
+              border-white/10
+              bg-slate-900/95
+              backdrop-blur-xl
+              p-6
+              shadow-2xl
+              md:hidden
+            "
+          >
+            <div className="flex flex-col gap-4">
+              {links.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => {
+                    ScrollToView();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="
+                    rounded-xl
+                    px-4
+                    py-3
+                    text-white/80
+                    transition
+                    hover:bg-white/5
+                    hover:text-cyan-300
+                  "
+                >
+                  {link.label}
+                </Link>
+              ))}
+
+              <CustomLink
+                href="/#demo_requisition"
+                onClick={() => setMobileMenuOpen(false)}
+                className="
+                  mt-2
+                  w-full
+                  justify-center
+                  rounded-xl
+                  py-3
+                  text-center
+                "
+              >
+                Request Demo
+              </CustomLink>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -1,130 +1,195 @@
 "use client";
+
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
+const testimonials = [
+  {
+    id: 1,
+    initials: "B",
+    name: "Benedict",
+    title: "Proprietor, FutureKids Academy",
+    text: "Systemar SMS has helped streamline our daily operations and provided a strong competitive advantage. The platform is reliable, intuitive, and backed by excellent support.",
+  },
+  {
+    id: 2,
+    initials: "F",
+    name: "Fayes Miller",
+    title: "Proprietor, Fayes Little Academy",
+    text: "The automation tools have significantly reduced administrative workload. Communication, reporting, and student management are now much easier.",
+  },
+  {
+    id: 3,
+    initials: "H",
+    name: "HS Ngandu",
+    title: "Director, PTC Manzini",
+    text: "After testing the demo, we made our purchase decision immediately. The platform exceeded expectations and the support team has been outstanding.",
+  },
+];
+
 const TestimonialCard = () => {
-  const testimonials = [
-    {
-      id: 1,
-      image: "https://placehold.co/100x100/1e293b/f8fafc?text=B",
-      name: "Benedict",
-      title: "Proprietor FutureKids Academy",
-      text: "Sytemar SMS has helped streamlined my college daily task and put us in a more competitive hedge. You will not regret a partnership with them.",
-    },
-    {
-      id: 2,
-      image: "https://placehold.co/100x100/1e293b/f8fafc?text=F",
-      name: "Fayes Miller",
-      title: "Proprietor Fayes'Little Academy",
-      text: "Systemar SMS has streamlined my academy's daily operations and given us a stronger competitive edge. Partnering with them is a decision you won't regret.",
-    },
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    {
-      id: 3,
-      image: "https://placehold.co/100x100/1e293b/f8fafc?text=H",
-      name: "HS Ngandu",
-      title: "Director, PTC Manzini",
-      text: "We tested out the demo and made purchase decision without any hesitation. We were so amazed with the result and the support given.",
-    },
-  ];
+  const current = testimonials[currentIndex];
 
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const currentTestimonial = testimonials[currentTestimonialIndex];
-
-  const handlePrevious = () => {
-    setCurrentTestimonialIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-  const handleNext = () => {
-    setCurrentTestimonialIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+  const next = () => {
+    setCurrentIndex((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
     );
   };
 
-  // Animation variants for the testimonial content
+  const previous = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
   const variants = {
     enter: {
-      x: 100,
       opacity: 0,
+      y: 20,
     },
     center: {
-      x: 0,
       opacity: 1,
-      transition: { duration: 0.5 },
+      y: 0,
+      transition: {
+        duration: 0.4,
+      },
     },
     exit: {
-      x: -100,
       opacity: 0,
-      transition: { duration: 0.5 },
+      y: -20,
+      transition: {
+        duration: 0.3,
+      },
     },
   };
 
   return (
-    <div className="flex items-center justify-center sm:p-6 lg:p-8 font-[Inter]">
-      <div className="w-full max-w-2xl bg-white p-6 md:p-3 rounded-2xl shadow-xl flex flex-col items-center text-center space-y-8">
-        <h2 className="text-2xl md:text-lg font-bold text-gray-800">
-          Testimonials
-        </h2>
+    <div
+      className="
+        relative
+        overflow-hidden
+        rounded-[32px]
+        border
+        border-slate-200
+        bg-white/90
+        p-8
+        shadow-xl
+        backdrop-blur-sm
+      "
+    >
+      {/* Quote Icon */}
+      <div className="mb-8">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100">
+          <Quote className="h-7 w-7 text-cyan-600" />
+        </div>
+      </div>
 
-        {/* Testimonial content container */}
-        <div className="relative w-full flex items-center justify-center">
-          {/* Previous button */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current.id}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+        >
+          {/* Quote */}
+          <p className="text-xl leading-9 text-slate-700">
+            "{current.text}"
+          </p>
+
+          {/* Author */}
+          <div className="mt-10 flex items-center gap-4">
+            <div
+              className="
+                flex
+                h-14
+                w-14
+                items-center
+                justify-center
+                rounded-full
+                bg-gradient-to-r
+                from-cyan-500
+                to-blue-600
+                text-white
+                font-bold
+              "
+            >
+              {current.initials}
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-900">
+                {current.name}
+              </h4>
+
+              <p className="text-sm text-slate-500">
+                {current.title}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Controls */}
+      <div className="mt-10 flex items-center justify-between">
+        <div className="flex gap-2">
+          {testimonials.map((item, index) => (
+            <button
+              key={item.id}
+              onClick={() => setCurrentIndex(index)}
+              className={`
+                h-2.5
+                rounded-full
+                transition-all
+                duration-300
+                ${
+                  currentIndex === index
+                    ? "w-8 bg-cyan-500"
+                    : "w-2.5 bg-slate-300"
+                }
+              `}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-3">
           <button
-            onClick={handlePrevious}
-            className="absolute left-0 p-2 md:p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors duration-200 transform -translate-x-1/2 md:translate-x-0 z-10"
-            aria-label="Previous Testimonial"
+            onClick={previous}
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-slate-200
+              hover:bg-slate-100
+              transition
+            "
           >
-            <ChevronLeft className="h-3 w-3 text-gray-600" />
+            <ChevronLeft size={18} />
           </button>
 
-          {/* Main testimonial display with animation */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentTestimonial.id}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="flex flex-col items-center space-y-6 max-w-md w-full"
-            >
-              {/* Testimonial image */}
-              <img
-                src={currentTestimonial.image}
-                alt={currentTestimonial.name}
-                className="w-12 h-12 rounded-full object-cover border-4 border-gray-100 shadow-md"
-                onError={(e) => {
-                  e.target.onerror = null; // prevents infinite loop
-                  e.target.src =
-                    "https://placehold.co/100x100/1e293b/f8fafc?text=User";
-                }}
-              />
-
-              {/* Testimonial text */}
-              <p className="text-lg italic text-gray-600 leading-relaxed px-6">
-                "{currentTestimonial.text}"
-              </p>
-
-              {/* Testimonial author and title */}
-              <div>
-                <p className="font-semibold text-gray-800 text-lg">
-                  {currentTestimonial.name}
-                </p>
-                <p className="text-sm text-gray-500">
-                  {currentTestimonial.title}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Next button */}
           <button
-            onClick={handleNext}
-            className="absolute right-0 p-2 md:p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors duration-200 transform translate-x-1/2 md:translate-x-0 z-10"
-            aria-label="Next Testimonial"
+            onClick={next}
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-slate-200
+              hover:bg-slate-100
+              transition
+            "
           >
-            <ChevronRight className="h-3 w-3 text-gray-600" />
+            <ChevronRight size={18} />
           </button>
         </div>
       </div>
