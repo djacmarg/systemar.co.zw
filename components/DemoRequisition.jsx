@@ -36,7 +36,7 @@ const DemoRequisition = () => {
       newErrors.numberOfStudents = "Enter Num of students";
     }
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
+      newErrors.phone = "Phone no is required";
     }
     if (!formData.servicePlan)
       newErrors.servicePlan = "Please select a service plan";
