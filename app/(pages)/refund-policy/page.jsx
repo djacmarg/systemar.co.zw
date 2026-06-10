@@ -254,7 +254,7 @@ const RefundPolicy = () => {
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold">
-                Tech Pundit (Pty) Ltd
+                SYSTEMAR
               </h3>
 
               <p className="mt-3 text-white/90 leading-7">

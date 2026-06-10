@@ -15,7 +15,7 @@ This Privacy Policy explains how we collect, use, store, share, and protect your
   {
     title: "2. Compliance",
     content: `
-We are committed to protecting your privacy in accordance with applicable data protection laws, including  "Data Protection Act in Zimbabwe (“DPA”)" and international privacy standards where applicable.
+We are committed to protecting your privacy in accordance with applicable data protection laws and international privacy standards where applicable.
     `,
   },
   {
