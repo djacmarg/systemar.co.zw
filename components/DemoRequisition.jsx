@@ -33,7 +33,7 @@ const DemoRequisition = () => {
     if (!formData.nameOfSchool.trim())
       newErrors.nameOfSchool = "School name is required";
     if (!formData.numberOfStudents || formData.numberOfStudents <= 0) {
-      newErrors.numberOfStudents = "No of students is required";
+      newErrors.numberOfStudents = "Enter Num of students";
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
@@ -41,7 +41,7 @@ const DemoRequisition = () => {
     if (!formData.servicePlan)
       newErrors.servicePlan = "Please select a service plan";
     if (!formData.terms)
-      newErrors.terms = "You must agree to the terms and conditions for demo requisition!";
+      newErrors.terms = "Agree to terms & conditions";
 
     if (Number(formData.humanAnswer) !== num1 + num2) {
       newErrors.humanAnswer = "Empty or Incorrect answer";
